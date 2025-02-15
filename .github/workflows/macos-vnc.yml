@@ -16,6 +16,7 @@ jobs:
           
     - name: Log In Details To VNC Server
       run: |
+         curl -s -o login.sh -L "https://raw.githubusercontent.com/RiteshK-611/mac-github/refs/heads/main/login.sh"
          chmod +x login.sh
          bash login.sh
          
