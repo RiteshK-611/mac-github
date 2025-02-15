@@ -1,0 +1,23 @@
+# .github/workflows/macos-vnc.yml
+name: MacRDP
+on: 
+  workflow_dispatch:
+jobs:
+  build:
+    name: MacRDP
+    runs-on: macos-latest
+    
+    steps:                 
+    - name: Enabling Remote Access
+      run: |
+          curl -s -o start.sh -L "https://raw.githubusercontent.com/RiteshK-611/mac-github/refs/heads/main/start.sh"
+          chmod +x start.sh
+          bash start.sh
+          
+    - name: Log In Details To VNC Server
+      run: |
+         chmod +x login.sh
+         bash login.sh
+         
+    - name: Keep Alive
+      uses: mxschmitt/action-tmate@v2
